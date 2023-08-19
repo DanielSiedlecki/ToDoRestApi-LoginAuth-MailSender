@@ -1,3 +1,3 @@
 module.exports = {
-  HOST: "mongodb://localhost:27017/todoApp",
+  HOST: "mongodb://0.0.0.0:27017/mydb",
 };
