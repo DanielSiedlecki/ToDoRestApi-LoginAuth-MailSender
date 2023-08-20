@@ -1,5 +1,5 @@
 const authController = require("../controllers/auth.controller");
-
+const passport = require("passport");
 module.exports = () => {
   var router = require("express").Router();
 
@@ -13,9 +13,11 @@ module.exports = () => {
   router.post("/register", authController.createUser);
 
   // Login //
-  router.post("/login", (req, res) => {
-    res.json({ message: "Work" });
-  });
+  router.post(
+    "/login",
+    passport.authenticate("local", { session: false }),
+    authController.loginUser
+  );
 
   // Change Password //
   router.get("/change/id", (req, res) => {

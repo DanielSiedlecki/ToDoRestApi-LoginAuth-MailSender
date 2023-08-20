@@ -2,10 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const config_file = require("./config.js");
-const dbconfig = require("./db.config");
+const config_file = require("./src/config/config.js");
+const dbconfig = require("./src/config/db.config");
+const passport = require("./src/config/passport.js");
 
 const app = express();
+
+require("dotenv").config();
 
 // Routes Import //
 const authRoutes = require("./src/routes/authRoutes.js");
@@ -23,15 +26,19 @@ mongoose
     console.error("Error connecting to MongoDB:", err);
   });
 
+// Passport config //
+
+passport();
+
 // Server Config //
 const corsOptions = {
   origin: config_file.cors,
 };
 
 const PORT = process.env.PORT || config_file.port;
-
-app.use("/api/auth", authRoutes());
 app.use(bodyParser.json());
+app.use("/api/auth", authRoutes());
+
 app.use(cors(corsOptions)).listen(PORT, () => {
   console.log(`Server is running on ${PORT} port`);
 });
