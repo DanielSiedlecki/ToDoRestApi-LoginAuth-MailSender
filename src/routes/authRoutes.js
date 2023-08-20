@@ -20,11 +20,9 @@ module.exports = () => {
   );
 
   // Change Password //
-  router.get("/change/id", (req, res) => {
-    res.json({ message: "Work" });
-  });
+  router.post("/change", authController.changePassword);
 
-  router.put("/change/id", (req, res) => {
+  router.get("/change/id", (req, res) => {
     res.json({ message: "Work" });
   });
 

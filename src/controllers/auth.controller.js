@@ -1,5 +1,6 @@
 const User = require("../models/users");
 const jsonwebtoken = require("jsonwebtoken");
+const passport = require("passport");
 
 exports.createUser = async (req, res) => {
   try {
@@ -28,6 +29,21 @@ exports.loginUser = async (req, res) => {
 };
 
 exports.changePassword = async (req, res) => {
-  try {
-  } catch (error) {}
+  const userEmail = req.body.email;
+  const oldPassword = req.body.oldpassword;
+  const newPassword = req.body.newpassword;
+
+  User.findByUsername(userEmail, (err, user) => {
+    if (err) {
+      return res.status(500).send(err);
+    } else {
+      user.changePassword(oldPassword, newPassword, function (err) {
+        if (err) {
+          return res.status(500).send(err);
+        } else {
+          res.send("Successfully changed password");
+        }
+      });
+    }
+  });
 };
