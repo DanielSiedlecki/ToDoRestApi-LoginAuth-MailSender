@@ -8,13 +8,13 @@ Project status: in progress
 
 It is backend for my ToDo App at which one I will be learning React
 
-**Target Backend Function: **
+**Target Backend Function:**
 
 - User Authorization (Login/Register/Change Password)
 - Unique list ToDo for everyone with the posibility of add task, delete task, change status task do/to it and edit task
 - Simple tasks sorting, list with do and list with do it (simple segregation)
 
-**Technology Keys: **
+**Technology Keys:**
 
 - Backend -> Node.js (Express, passport, mongoose)
 - Data base-> MongoDB
@@ -31,18 +31,18 @@ It is backend for my ToDo App at which one I will be learning React
 
 Jest to backend stworzony w node.js dla mojej aplikacji ToDo, przy której będę uczył się reacta.
 
-**Target Backend Function: **
+**Główne Funkcje:**
 
 - Autoryzacja użytkownika (Logowanie/Rejestracja/Zmiana hasła);
 - Unikalna Lista ToDo dla każdego z możliwościa dodania zadania, usunięcia zadania, zmiany statusu na wykonany/do wykonania oraz edytowania zadania.
 - Zadania wykonane będą lądować w liście do wykonania natomiast nie wykonane w liście do wykonania. (prosta i podstawowa segregacja)
 
-**Technologie użyte: **
+**Technologie użyte:**
 
 - Backend -> Node.js (Express, passport, mongoose)
 - Data base-> MongoDB
 
-\*_Funkcje opcjonalne które dodam gdy będę miał czas: _
+**Funkcje opcjonalne które dodam gdy będę miał czas:**
 
 - Zadania z ustalonym czasem na wykonanie
 - Zaawansowane sortowanie
