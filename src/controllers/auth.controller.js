@@ -36,6 +36,16 @@ exports.changePassword = async (req, res) => {
 
     const user = await User.findByUsername(userEmail);
 
+    const token = req.headers.authorization;
+    if (!token) {
+      return res.status(401).json({ message: "Authorization token missing" });
+    }
+
+    const decodedToken = jsonwebtoken.verify(token, process.env.JWT_KEY);
+    if (!decodedToken || decodedToken.id !== user.id) {
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+
     if (oldPassword === newPassword) {
       return res.status(400).json({
         message: "The new password cannot be the same as the old password",
