@@ -1,6 +1,15 @@
 const User = require("../models/users");
 const jsonwebtoken = require("jsonwebtoken");
-const passport = require("passport");
+
+exports.getUsers = async (req, res) => {
+  try {
+    const allUsers = await User.find({});
+
+    res.status(201).json(allUsers);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+};
 
 exports.createUser = async (req, res) => {
   try {

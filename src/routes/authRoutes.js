@@ -5,9 +5,7 @@ module.exports = () => {
 
   // All Users View //
 
-  router.get("/users", (req, res) => {
-    res.json({ message: "Work" });
-  });
+  router.get("/users", authController.getUsers);
 
   // Register //
   router.post("/register", authController.createUser);
