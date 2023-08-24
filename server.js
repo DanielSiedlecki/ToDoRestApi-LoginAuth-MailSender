@@ -12,6 +12,7 @@ require("dotenv").config();
 
 // Routes Import //
 const authRoutes = require("./src/routes/authRoutes.js");
+const taskRoutes = require("./src/routes/toDoRoutes.js");
 
 // MongoDB connect ///
 mongoose
@@ -38,6 +39,7 @@ const corsOptions = {
 const PORT = process.env.PORT || config_file.port;
 app.use(bodyParser.json());
 app.use("/api/auth", authRoutes());
+app.use("/api/task", taskRoutes());
 
 app.use(cors(corsOptions)).listen(PORT, () => {
   console.log(`Server is running on ${PORT} port`);
